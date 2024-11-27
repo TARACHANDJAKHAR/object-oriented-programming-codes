@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Publication {
+    string title, author;
+    double price;
+};
+
+struct Book : Publication {
+    int count;
+    void getData() {
+        cout << "Enter title, author, price, and page count: ";
+        cin >> title >> author >> price >> count;
+    }
+    void display() {
+        cout << "Book - Title: " << title << ", Author: " << author << ", Price: Rs. " << price << ", Pages: " << count << endl;
+    }
+};
+
+struct Ebook : Publication {
+    double time;
+    void getData() {
+        cout << "Enter title, author, price, and playing time: ";
+        cin >> title >> author >> price >> time;
+    }
+    void display() {
+        cout << "Ebook - Title: " << title << ", Author: " << author << ", Price: Rs. " << price << ", Playing Time: " << time << " mins" << endl;
+    }
+};
+
+int main() {
+    Book b;
+    Ebook e;
+
+    b.getData();
+    b.display();
+
+    e.getData();
+    e.display();
+
+    return 0;
+}
