@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int miners, toasters, fans;
+    double totalCost, discount, salesTax, finalAmount;
+
+    cout << "Enter the number of miners, toasters, and fans: ";
+    cin >> miners >> toasters >> fans;
+
+    double costOfMiners = miners * 1500;
+    double costOfToasters = toasters * 200;
+    double costOfFans = fans * 450;
+
+    discount = (0.05 * costOfMiners) + (0.10 * costOfToasters) + (0.15 * costOfFans);
+    totalCost = costOfMiners + costOfToasters + costOfFans - discount;
+    salesTax = 0.10 * totalCost;
+    finalAmount = totalCost + salesTax;
+
+    cout << "The total amount to be paid is: Rs. " << finalAmount << endl;
+    return 0;
+}
