@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class TelephoneBill {
+    string customerName;
+    int calls;
+    double billAmount;
+
+public:
+    void inputData() {
+        cout << "Enter customer name and number of calls: ";
+        cin >> customerName >> calls;
+    }
+
+    void computeBill() {
+        if (calls <= 100)
+            billAmount = 200;
+        else if (calls <= 150)
+            billAmount = 200 + 0.60 * (calls - 100);
+        else if (calls <= 200)
+            billAmount = 200 + 0.60 * 50 + 0.50 * (calls - 150);
+        else
+            billAmount = 200 + 0.60 * 50 + 0.50 * 50 + 0.40 * (calls - 200);
+    }
+
+    void displayData() {
+        cout << "Customer: " << customerName << ", Bill: Rs. " << billAmount << endl;
+    }
+};
+
+int main() {
+    TelephoneBill tb;
+    tb.inputData();
+    tb.computeBill();
+    tb.displayData();
+
+    return 0;
+}
