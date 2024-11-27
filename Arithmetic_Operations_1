@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+struct Arithmetic {
+    int no1, no2;
+};
+
+// Function prototypes
+void add(Arithmetic a);
+void sub(Arithmetic a);
+void mul(Arithmetic a);
+void div(Arithmetic a);
+
+void menu() {
+    cout << "\nSelect an operation:\n";
+    cout << "1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit\n";
+}
+
+int main() {
+    Arithmetic a;
+    int choice;
+
+    cout << "Enter two integers: ";
+    cin >> a.no1 >> a.no2;
+
+    do {
+        menu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            add(a);
+            break;
+        case 2:
+            sub(a);
+            break;
+        case 3:
+            mul(a);
+            break;
+        case 4:
+            div(a);
+            break;
+        case 5:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout << "Invalid choice! Try again." << endl;
+        }
+    } while (choice != 5);
+
+    return 0;
+}
+
+// Function definitions
+void add(Arithmetic a) {
+    cout << "Addition: " << a.no1 + a.no2 << endl;
+}
+
+void sub(Arithmetic a) {
+    cout << "Subtraction: " << a.no1 - a.no2 << endl;
+}
+
+void mul(Arithmetic a) {
+    cout << "Multiplication: " << a.no1 * a.no2 << endl;
+}
+
+void div(Arithmetic a) {
+    if (a.no2 != 0)
+        cout << "Division: " << (double)a.no1 / a.no2 << endl;
+    else
+        cout << "Division by zero is not allowed!" << endl;
+}
